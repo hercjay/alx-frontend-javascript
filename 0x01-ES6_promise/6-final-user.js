@@ -11,5 +11,11 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
       arr.push({ status: item.status, value: item.value || item.reason });
     }
     return arr;
+  }).catch((error) => {
+    const arr = [];
+    for (const item of values) {
+      arr.push({ status: item.status, value: error.value || error.reason });
+    }
+    return arr;
   });
 }
